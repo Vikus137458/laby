@@ -1,41 +1,33 @@
 #include <stdio.h>
 #include <math.h>
+double f(double x)
+{
+  if (x <= 0.6)
+      return 1.0 / (1.0 + 25.0 * x * x);
+  else
+      return (x + 2.0 * x * x * x * x) * sin (x * x);
+}
 int main()
 {
-    double x0, h1, h2, x, f, s1, s2, e, d;
-    int i, j, n;
+    double h2, x, s1, s2, e, d;
+    int j, n;
     printf("Vvedite e");
     scanf ("%lf", &e);
     n = 2;
-    d = 1000.0;
-    x0 = 0;
+    d = s1 = 1000.0;
     while (d >= e)
     {
-        s1 = 0.0;
         s2 = 0.0;
-        h1 = 1.6 / n;
-        h2 = 1.6 / (2.0 * n);
-        for (i = 0; i <= n - 1; i++)
-        {
-            x = x0 + i * h1 + h1 / 2.0;
-            if (x <= 0.6)
-                f = 1.0 / (1.0 + 25.0 * x * x);
-            else
-                f = (x + 2.0 * x * x * x * x) * sin (x * x);
-            s1 = s1 + f;
-        }
-        s1 = h1 * s1;
         for (j = 0; j <= 2 * n - 1; j++)
         {
-            x = x0 + j * h2 + h2 / 2.0;
-            if (x <= 0.6)
-                f = 1.0  / (1.0 + 25.0 * x * x);
-            else
-                f = (x + 2.0 * x * x * x * x) * sin (x * x);
-            s2 = s2 + f;
+            h2 = 1.6 / (2.0 * n);
+            x = j * h2 + h2 / 2.0;
+            s2 = s2 + f(x);
         }
         s2 = h2 * s2;
         d = fabs(s2 - s1) / 3.0;
+        printf("%lf\t%lf\t%d\n", s2, d, n);
+        s1 = s2;
         n = 2 * n;
    }
     printf("%lf\n", s2);
