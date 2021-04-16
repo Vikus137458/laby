@@ -22,11 +22,16 @@ int main()
     for (;;)
     {
         a = mygetch();
-        if (a != 50)
+        if (a != 126)
         {
             a = mygetch();
             if (a != 27)
             {
+              a = mygetch();
+              if (a != 91)
+              {
+                  a = mygetch();
+                  if (a != 50)
             if (isalnum(a))
                 {
 
