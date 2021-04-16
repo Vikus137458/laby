@@ -19,13 +19,26 @@ int mygetch()
 int main()
 {
     char a;
-    int i = 1;
-    //while (i != 0)
-    //{
-    scanf("%с", &a);
-    if (isalnum(a) != 0)
+    for (;;)
+    {
         a = mygetch();
-    else
-        printf("%с", a);
+        if (a != 50)
+        {
+            a = mygetch();
+            if (a != 27)
+            {
+            if (isalnum(a))
+                {
+
+                    printf("%d\n", a);
+                }
+            else
+                printf("%c\n", a);
+            }
+            else return 0;
+        }
+        else
+            return 0;
+    }
     return 0;
 }
