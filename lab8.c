@@ -22,13 +22,10 @@ int main()
     int i = 1;
     //while (i != 0)
     //{
-    printf("%hhd", a);
+    scanf("%с", &a);
     if (isalnum(a) != 0)
-    {
         a = mygetch();
-        scanf("%hhd", &a);
-    }
     else
-        scanf("%hhd", &a);
+        printf("%с", a);
     return 0;
 }
