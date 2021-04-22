@@ -3,28 +3,20 @@
 
 int main ()
 {
-    char s[10];
-    scanf("%s", s);
-    char A[10];
-    char s3[1] = " ";
-    char s1[10] = "";
-      int i = k = 0;
-      int j;
-     while (i < strlen(s))
-     {
-         
-         while (s[i] != s3)
-         {
-           strcat (s1, s[i]);
-           i++;
-         }
-        i++;
-        A[k] = s1;
-        k++;
-        for (j = 0;j < 10;j++)
-            if A[j] != A[k]
-                printf ("%c", A[k]);   
-     }
+    char str[50] = "When hunter meets hunter this hunter eats hunter";
+    char delim[3] = ", ";
+    char *A[50];
+    char *B[50];
+    A[0] = strtok(str, delim);
+    printf(A[0]);
+    int i = 1;
+    int j;
+    while ((A[i] = strtok(NULL, delim)))
+    {
+        for (j = 0; j < ;j++)
+              if (strcmp(A[i],B[j]) != 0)
+                  B[j] = A[i];
+      i++;
+    }
     return 0;
 }
-
