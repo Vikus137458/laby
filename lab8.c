@@ -32,14 +32,12 @@ int main()
               {
                   a = mygetch();
                   if (a != 50)
-            if (isalnum(a))
-                {
-
+                  {
+                    if (isalnum(a))
                     printf("%d\n", a);
-                }
-            else
-                printf("%c\n", a);
-            }
+                    else
+                    printf("%c\n", a);
+                  }
             else return 0;
         }
         else

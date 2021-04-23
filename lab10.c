@@ -4,16 +4,16 @@
 void f1(int n, int m, int a[n][m])
 {
     int i, j;
-    for (i = 0; i < n; i++)
-        for (j = 0; j < m; j++)
+    for (i = 0;i < n;i++)
+        for (j = 0;j < m;j++)
             a[i][j] = rand () % 21 - 10;
 }
 void f2(int n, int m, int a[n][m])
 {
     int i, j;
-    for (i = 0; i < n; i++)
+    for (i = 0;i < n;i++)
     {
-        for (j = 0; j < m; j++)
+        for (j = 0;j < m;j++)
             printf("%3d", a[i][j]);
         printf("\n");
     }
@@ -25,20 +25,20 @@ int main()
     int n, m, x, i ,j, k;
     printf("Vvedite n and m\n");
     scanf ("%d\t%d", &n, &m);
-    int ** a = ( int **) malloc ( n * sizeof ( int *) ) ;
-    if (! a )
+    int **a = (int **) malloc (n* sizeof(int*));
+    if (!a)
         {
-            printf (" Memory allocation error !\ n ") ;
-            exit ( EXIT_FAILURE ) ;
+            printf ("Memory allocation error !\ n");
+            exit (EXIT_FAILURE);
         }
-    for ( i = 0; i < n ; i ++)
+    for (i = 0;i < n;i++)
         p [ i ] = malloc ( m * sizeof ( int ) ) ;
-    for ( i = 0; i < n ; i ++)
-        for ( j = 0; j < m ; j ++)
+    for (i = 0; i < n ; i ++)
+        for ( j = 0;j < m;j++)
             a [ i ][ j ] = i * m + j + 1;
-    for ( i = 0; i < n ; i ++)
-        free ( a [ i ]) ;
-    free ( a ) ;
+    for (i = 0;i < n;i ++)
+        free (a[ i ]);
+    free (a);
     int a[n][m];
     f1(n, m, a);
     f2(n, m, a);
