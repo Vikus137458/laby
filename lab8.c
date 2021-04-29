@@ -1,7 +1,7 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <termios.h>
 #include <unistd.h>
-#include <ctype.h>
 
 int mygetch()
 {
@@ -22,26 +22,27 @@ int main()
     for (;;)
     {
         a = mygetch();
-        if (a != 126)
+        if (a != 32)
+        {
+          printf("%d\n", a);
+          a = mygetch();
+        }
+        if (a != 32)
+        {
+          printf("%d\n", a);
+          a = mygetch();
+        }
+        if (a == 50)
         {
             a = mygetch();
-            if (a != 27)
+            if (a != 49 && a != 51)
             {
-              a = mygetch();
-              if (a != 91)
-              {
-                  a = mygetch();
-                  if (a != 50)
-                  {
-                    if (isalnum(a))
+                if (isalnum(a))
                     printf("%d\n", a);
-                    else
+                else
                     printf("%c\n", a);
-                  }
-            else return 0;
+            }
         }
-        else
-            return 0;
     }
     return 0;
 }
