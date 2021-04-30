@@ -32,12 +32,12 @@ int main()
             exit (EXIT_FAILURE);
         }
     for (i = 0;i < n;i++)
-        p [ i ] = malloc ( m * sizeof ( int ) ) ;
-    for (i = 0; i < n ; i ++)
-        for ( j = 0;j < m;j++)
-            a [ i ][ j ] = i * m + j + 1;
+        p[i] = malloc (m* sizeof(int));
     for (i = 0;i < n;i ++)
-        free (a[ i ]);
+        for (j = 0;j < m;j++)
+            a[i][j] = i * m + j + 1;
+    for (i = 0;i < n;i ++)
+        free (a[i]);
     free (a);
     int a[n][m];
     f1(n, m, a);
