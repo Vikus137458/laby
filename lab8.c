@@ -22,25 +22,46 @@ int main()
     for (;;)
     {
         a = mygetch();
-        if (a != 32)
+        if (a != 27)
         {
-          printf("%d\n", a);
-          a = mygetch();
+          if (isalnum(a))
+                  printf("%d\n", a);
+          else
+                  printf("%c\n", a);
         }
-        if (a != 32)
-        {
-          printf("%d\n", a);
-          a = mygetch();
-        }
-        if (a == 50)
+        else
         {
             a = mygetch();
-            if (a != 49 && a != 51)
+            if (a != 91)
+                {
+                  if (isalnum(a))
+                          printf("%d\n", a);
+                  else
+                          printf("%c\n", a);
+                }
+            else
             {
-                if (isalnum(a))
-                    printf("%d\n", a);
+                a = mygetch();
+                if (a != 50)
+                {
+                  if (isalnum(a))
+                          printf("%d\n", a);
+                  else
+                          printf("%c\n", a);
+                }
                 else
-                    printf("%c\n", a);
+                {
+                    a = mygetch();
+                    if (a != 126)
+                    {
+                      if (isalnum(a))
+                              printf("%d\n", a);
+                      else
+                              printf("%c\n", a);
+                    }
+                    else
+                        return 0;
+                }
             }
         }
     }
