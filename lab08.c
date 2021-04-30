@@ -20,7 +20,16 @@ int mygetch()
 int main()
 {
     char a;
+    for (;;)
+    {
     a = mygetch();
-    printf("%hhd", a);
+    printf("%d\n", a);
+    a = mygetch();
+    printf("%d\n", a);
+    a = mygetch();
+    printf("%d\n", a);
+    a = mygetch();
+    printf("%d\n", a);
+    }
     return 0;
 }

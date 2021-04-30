@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <termios.h>
 #include <unistd.h>
-
 int mygetch()
 {
     struct termios oldt, newt;
@@ -15,40 +14,31 @@ int mygetch()
     tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
     return c;
 }
-
 int main()
 {
     char a;
     for (;;)
     {
         a = mygetch();
-        if (a != 27 && (a < 79 || a > 83) && (a < 70 || a > 72))
-        {
-            if (a != 126)
-            {
-                if (isalnum(a))
-                    printf("%d\n", a);
-                else
-                    printf("%d\n", a);
-            }
-            else
-            {
-            }
-        }
+        if (a != 32)
+            printf("%d\n", a);
+
         else
         {
             a = mygetch();
-            if (a == 91)
+            if (a != 32)
+                printf("%d\n", a);
+            else
             {
                 a = mygetch();
-                if (a == 50)
+                if (a != 32)
+                    printf("%d\n", a);
+                else
                 {
                     a = mygetch();
-                    if (a == 126)
-                        return 0;
+                    if (a != 32)
+                        printf("%d\n", a);
                 }
-                else if ((a < 53 || a > 57) && a != 91)
-                    a = mygetch();
             }
         }
     }
