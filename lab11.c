@@ -10,51 +10,55 @@ struct book
     char vo[256];
 };
 
-void f1(int n, int a[5])
+struct book x[5];
+
+void f1(struct book x[5])
 {
-    int i, j;
-		for (j = 0; j < n; j++)
-		for (i = 0; i < 5; i++)
+    int i;
+		for (i = 3; i < 5; i++)
     {
-        scanf("%s", &a[i].nomer);
-        scanf("%s", &a[i].pp);
-        scanf("%s", &a[i].po);
-        scanf("%s", &a[i].vp);
-        scanf("%s", &a[i].vo);
+        scanf("%s", &x[i].nomer);
+        scanf("%s", &x[i].pp);
+        scanf("%s", &x[i].po);
+        scanf("%s", &x[i].vp);
+        scanf("%s", &x[i].vo);
     }
-
-
 }
 
-int main()
+void f2(struct book x[5])
 {
-		struct book x[3];
-    struct book e = {"456", "fgh", "rthrt", "809", "456"};
-    x[0] = e;
-    struct book e1 = {"446", "fgk", "rtkkrt", "856", "426"};
-    x[1] = e1;
-    struct book e2 = {"426", "fkk", "rtkkt", "805", "4556"};
-    x[2] = e2;
-
-    int i, n;
-    char s[30];
-		scanf("%d", &n);
-
-    // printf("Vvedite avtobusy: \n");
-    // for (i = 0; i < 5; i++)
+		struct book e3 = {"0", "0", "0", "0", "0"};
+		x[3] = e3;
+		struct book e4 = {"0", "0", "0", "0", "0"};
+		x[4] = e4;
+		// int i;
+				// for (i = 3; i < 5; i++)
     // {
-    //     scanf("%s", &x[i].nomer);
-    //     scanf("%s", &x[i].pp);
-    //     scanf("%s", &x[i].po);
-    //     scanf("%s", &x[i].vp);
-    //     scanf("%s", &x[i].vo);
+    //     x[i].nomer = "0";
+    //     x[i].pp = "0";
+		// 		x[i].po = "0";
+		// 		x[i].vp = "0";
+		// 		x[i].vo = "0";
     // }
+}
 
-    printf("Vvedite punkt pribitia: ");
-    scanf("%s", &s);
+void f3(struct book x[5])
+{
+    int i;
+		for (i = 0; i < 5; i++)
+    {
+        printf("%s\t", x[i].nomer);
+        printf("%s\t", x[i].pp);
+        printf("%s\t", x[i].po);
+        printf("%s\t", x[i].vp);
+        printf("%s\n", x[i].vo);
+    }
+}
 
-    printf("\n");
-    for (i = 0; i < 3; i++)
+void f4(char s, struct book x[5])
+{
+    int i;
+		for (i = 0; i < 5; i++)
     {
         if (strcmp(x[i].pp, s) == 0)
         {
@@ -65,5 +69,26 @@ int main()
             printf("%s\n", x[i].vo);
         }
     }
+}
+
+int main()
+{
+		struct book x[5];
+    struct book e = {"456", "fgh", "rthrt", "809", "456"};
+    x[0] = e;
+    struct book e1 = {"446", "fgk", "rtkkrt", "856", "426"};
+    x[1] = e1;
+    struct book e2 = {"426", "fkk", "rtkkt", "805", "4556"};
+    x[2] = e2;
+
+    int i;
+    char s[30];
+    f1(x);
+    printf("Vvedite punkt pribitia: ");
+    scanf("%s", &s);
+    printf("\n");
+		f4(s, x);
+		f2(x);
+		f4(s, x);
     return 0;
 }
