@@ -10,49 +10,42 @@ struct book
     char vo[256];
 };
 
-struct book x[5];
+struct book x[10];
 
-void f1(struct book x[5])
+char f1(struct book x[10], int k)
 {
     int i;
-		for (i = 3; i < 5; i++)
+		for (i = k; i < k + 1; i++)
     {
+        printf("Nomer ");
         scanf("%s", &x[i].nomer);
+        printf("Punkt pribitia ");
         scanf("%s", &x[i].pp);
+        printf("Punkt otpravlenia ");
         scanf("%s", &x[i].po);
+        printf("Vremy pribitia  ");
         scanf("%s", &x[i].vp);
+        printf("Vremy otpravlenia ");
         scanf("%s", &x[i].vo);
     }
 }
 
-void f2(struct book x[5])
+void f2(struct book x[10], int p)
 {
-		struct book e3 = {"0", "0", "0", "0", "0"};
-		x[3] = e3;
-		struct book e4 = {"0", "0", "0", "0", "0"};
-		x[4] = e4;
-		// int i;
-				// for (i = 3; i < 5; i++)
-    // {
-    //     x[i].nomer = "0";
-    //     x[i].pp = "0";
-		// 		x[i].po = "0";
-		// 		x[i].vp = "0";
-		// 		x[i].vo = "0";
-    // }
+    printf("Kakoi? ")
+    scanf("%d", &p)
+		struct book e3 = {" ", " ", " ", " ", " "};
+		x[p - 1] = e3;
+		printf("%s", x[p]);
 }
 
-void f3(struct book x[5])
+void f3(struct book x[10], int i)
 {
-    int i;
-		for (i = 0; i < 5; i++)
-    {
-        printf("%s\t", x[i].nomer);
-        printf("%s\t", x[i].pp);
-        printf("%s\t", x[i].po);
-        printf("%s\t", x[i].vp);
-        printf("%s\n", x[i].vo);
-    }
+    printf("%s\t", x[i].nomer);
+    printf("%s\t", x[i].pp);
+    printf("%s\t", x[i].po);
+    printf("%s\t", x[i].vp);
+    printf("%s\n", x[i].vo);
 }
 
 void f4(char s, struct book x[5])
@@ -83,6 +76,7 @@ int main()
 
     int i;
     char s[30];
+    int k = 3;
     f1(x);
     printf("Vvedite punkt pribitia: ");
     scanf("%s", &s);
